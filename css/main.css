@@ -1,0 +1,642 @@
+@import url(http://fonts.googleapis.com/earlyaccess/nanumgothic.css);
+
+.nanumgothic * {
+  font-family: "Nanum Gothic", sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+li {
+  list-style: none;
+}
+a {
+  text-decoration: none;
+  display: block;
+  color: 212121;
+  font-family: "Nanum Gothic", sans-serif;
+}
+body {
+  font-family: "Nanum Gothic", sans-serif;
+  background-color: #0f0f0f;
+}
+
+/* 태그 선택자 */
+header,
+section,
+footer {
+  width: 100%;
+  float: left;
+}
+/* header, section, footer안의 직속 자식객체, 항상 브라우저 가운데 정령 */
+.box {
+  width: 1400px;
+  margin: 0 auto;
+}
+/* 이미지 크기는 부모크기에 맞춤 */
+img {
+  width: 100%;
+}
+/* 헤더 */
+header {
+  width: 100%;
+  position: relative;
+  margin: 0 auto;
+  transition: all 0.5s;
+  background-color: #0f0f0f;
+  position: fixed;
+  height: 100px;
+  top: 0;
+  left: 0;
+  z-index: 40; /*section 보다 위에 배치*/
+}
+/* 화면이 아래로 내려가면 header의 배경이 흰색으로 변함(제이쿼리) */
+header.active {
+  background-color: #0f0f0f;
+  box-shadow: 0 5px #ccc;
+}
+/* 로고 */
+header .logo {
+  width: 150px;
+  height: 60px;
+  margin: 5px;
+  float: left;
+}
+/* 내비게이션 */
+header .box nav {
+  float: left; /*로고 옆에 배치*/
+  margin-top: 40px; /* 위쪽 여백 */
+  /* position: relative; */
+  z-index: 60;
+}
+/* 주메뉴 */
+header .box nav > ul > li {
+  float: left;
+  margin: 0 40px;
+}
+header .box nav > ul > li > a {
+  font-size: 16px;
+  color: #fff;
+  font-weight: bold;
+}
+header .box nav ul li a:hover,
+header .box nav > ul > li > a.active {
+  color: #573a2d;
+}
+/* 서브메뉴 */
+header nav .sub {
+  position: absolute;
+  width: 100%;
+  background-color: #151515;
+  top: 70px;
+  left: 0;
+  padding: 0 300px;
+  box-sizing: border-box;
+  max-height: 0;
+  overflow: hidden;
+  transition: all 0.7s;
+}
+header nav .sub.active {
+  max-height: 850px;
+}
+header nav .sub > li {
+  float: left;
+  width: 200px;
+  min-height: 200px;
+  margin-top: 50px;
+}
+header nav .sub2 {
+  margin-bottom: 70px;
+}
+header nav .sub > li > a {
+  color: #fff;
+  font-size: 16px;
+  padding: 10px;
+}
+header nav .sub2 li a {
+  padding: 10px;
+  font-size: 14px;
+  color: #aaa;
+}
+header .my {
+  float: right;
+  /* margin-right: 100px; */
+  margin-top: 40px;
+  font-size: 16px;
+}
+header .my > ul > li {
+  float: left;
+  margin-left: 30px;
+}
+header .my > ul > li > a {
+  font-size: 18px;
+  font-weight: bold;
+  color: #fff;
+}
+header .my > ul > li > a:hover,
+header .my > ul > li > a.active {
+  color: #573a2d;
+}
+header .my .sub {
+  display: none;
+  position: absolute;
+  padding: 50px 300px;
+  top: 70px;
+  background-color: #151515;
+  left: 0;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+header .my .sub > li {
+  float: left;
+  width: 300px;
+  height: 300px;
+  height: 120px;
+}
+header .my .sub > li > a {
+  color: #fff;
+  font-size: 14px;
+  padding: 10px 10px;
+}
+header .my .sub2 li a {
+  color: #aaa;
+  font-size: 14px;
+  padding: 10px;
+}
+/* 메인 비주얼 */
+.s1 .photo {
+  margin: 0 auto;
+  /* margin-top: 100px; */
+  width: 1920px;
+  height: 860px;
+  position: relative;
+  /* 자식객체 li들이 겹쳐질 때 .photo를 기준으로 위치설정 */
+}
+.s1 .photo ul li {
+  margin-top: 80px;
+  position: absolute; /* 겹침 */
+  width: 1920px;
+  height: 860px;
+  display: none;
+}
+.s1 .photo ul li:first-child {
+  display: block;
+}
+.s1 .des_box {
+  width: 1200px;
+  top: 250px;
+  /* position:absolute일때 좌우 가운데 정렬 공식 */
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.s1 .des_box .des {
+  width: 500px;
+  height: 300px;
+  /* position: absolute; */
+}
+.s1 .des_box .des ul li {
+  position: absolute;
+}
+.s1 .des_box .des h2 {
+  font-size: 20px;
+  font-weight: normal;
+  color: #fff;
+}
+.s1 .des_box .des h1 {
+  font-size: 80px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  color: #fff;
+}
+.s1 .des_box .des p {
+  color: #fff;
+}
+.s1 .des_box .des a {
+  float: left;
+  width: 120px;
+  padding: 10px 20px;
+  border: 1px solid#ccc;
+  text-align: center;
+  margin: 30px 0;
+  background-color: #151515;
+  color: #fff;
+}
+.s1 .des_box .des a:hover {
+  background-color: #573a2d;
+  color: #151515;
+}
+.s1 .des_box .number {
+  margin-top: 20px;
+}
+.s1 .des_box .number div {
+  float: left;
+}
+.s1 .des_box .number .num ul li {
+  float: left;
+  padding: 10px 30px 10px 0; /* 위-오른족-아래-왼쪽 (정시계 방향)*/
+}
+.s1 .des_box .number .num ul li a {
+  font-weight: bold;
+  color: #fff;
+}
+/* number가 활성호되면 나타나는 밑줄 */
+.s1 .des_box .number .num ul li a.active:after {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 2px;
+  margin-top: 5px;
+  background-color: #fff;
+}
+
+.s1 .des_box .number .num ul li a:hover {
+  color: #573a2d;
+}
+.s1 .des_box .number .btn hr {
+  float: left;
+  width: 80px;
+  height: 1px;
+  border: none;
+  background-color: #333;
+  margin-top: 13px;
+}
+.s1 .des_box .number .btn a {
+  width: 16px;
+  height: 16px;
+  float: left;
+  margin-top: 3px;
+  margin-left: 20px;
+  background-image: url(../img/stop.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.s1 .des_box .number .btn a.active {
+  background-image: url(../img/arrow_play.png);
+}
+.s1 .des_box .des ul li {
+  display: none;
+  position: absolute;
+}
+.s1 .des_box .des ul li:first-child {
+  display: block;
+}
+.s2 {
+  position: relative;
+}
+.s2 .box {
+  width: 1920px;
+  margin: 0 auto;
+}
+.s2 .des_box {
+  position: absolute;
+  top: 200px;
+}
+.s2 .box .photo {
+  margin-top: 100px;
+  width: 1920px;
+  height: 840px;
+  position: relative;
+}
+
+.s2 .box .photo ul li {
+  margin-top: 100px;
+  width: 1920px;
+  height: 840px;
+  position: absolute;
+}
+.s2 .des_box .des {
+  color: #fff;
+  margin-left: 160px;
+  height: 300px;
+  position: absolute;
+}
+.s2 .des_box .des h1 {
+  font-size: 20px;
+  font-weight: normal;
+}
+.s2 .des_box .number {
+  margin-top: 20px;
+}
+.s2 .des_box .number div {
+  float: left;
+}
+.s2 .des_box .number .num ul li {
+  float: left;
+  padding: 10px 30px 10px 0; /* 위-오른족-아래-왼쪽 (정시계 방향)*/
+}
+.s2 .des_box .number .num ul li a {
+  font-weight: bold;
+  color: #fff;
+}
+.s2 .des_box .number .num {
+  float: left;
+  color: #fff;
+  position: absolute;
+  top: 600px;
+  left: 50px;
+}
+/* 연관컨텐츠(content */
+.s3 {
+  position: relative;
+}
+.s3 .area {
+  width: 1920px;
+  margin: 0 auto;
+  margin-top: 100px;
+}
+.s3 .content1 {
+  width: 1230px;
+  margin-top: 100px;
+}
+.s3 .content1 h1 {
+  font-size: 40px;
+  margin-left: 200px;
+  color: #fff;
+}
+.s3 .content1 .content_title {
+  width: 1230px;
+  height: 570px;
+  background-color: #573a2d;
+  border-radius: 0 0 160px 0;
+  margin-top: 160px;
+}
+.s3 .content1 .content_title .content_des {
+  margin-left: 200px;
+  padding-top: 50px;
+  float: left;
+}
+.s3 .content1 .content_title .content_des ul li h3 {
+  color: #fff;
+  font-size: 30px;
+}
+.s3 .content1 .content_title .content_des ul li h3 span {
+  opacity: 0.3;
+  font-size: 50px;
+  margin-right: 10px;
+}
+.s3 .content1 .content_title .content_des ul li p {
+  color: #fff;
+  font-size: 18px;
+  margin-top: 10px;
+}
+/* 모든 content_des ul li 안 보임*/
+.s3 .content1 .content_title .content_des ul li {
+  display: none;
+  position: absolute;
+}
+.s3 .content1 .content_title .content_des ul li:first-child {
+  display: block;
+}
+/* content_list */
+.s3 .content1 .content_title .content_list {
+  float: left;
+  margin-top: 200px;
+  margin-left: 300px;
+}
+.s3 .content1 .content_title .content_list ul li {
+  width: 200px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+.s3 .content1 .content_title .content_list ul li a {
+  color: #fff;
+  font-size: 20px;
+  padding: 10px 0;
+  border-bottom: 3px solid transparent;
+  padding-left: 0;
+  opacity: 0.5;
+}
+.s3 .content1 .content_title .content_list ul li.active a {
+  border-bottom: 3px solid #fff;
+  padding-left: 30px;
+  opacity: 1;
+}
+.s3 .content2 {
+  width: 910px;
+  height: 676px;
+  position: absolute;
+  top: 100px;
+  left: 46.5%;
+}
+.s3 .content2 ul li {
+  position: absolute;
+  display: none;
+}
+.s3 .content2 ul li:first-child {
+  display: block;
+}
+/* 신제품 */
+.s4 {
+  position: relative;
+}
+.s4 .area {
+  width: 1920px;
+  margin: 0 auto;
+  margin-top: 100px;
+}
+.s4 .new_bg {
+  float: left;
+  width: 783px;
+  height: 840px;
+  background-image: url(../img/sec2-bg.png);
+  background-position: left center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  margin: 0%;
+}
+.s4 .new_des .new_title {
+  float: left;
+}
+.s4 .new_des {
+  float: left;
+  margin: 40px;
+}
+.s4 .new_des h1 {
+  font-size: 24px;
+  float: left;
+  color: #573a2d;
+}
+.s4 .new_des .new_title h1 span {
+  color: #fff;
+  font-size: 40px;
+}
+.s4 .new_des .new_title hr {
+  float: left;
+  width: 350px;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  margin-left: 40px;
+}
+.s4 .new_des p {
+  font-size: 20px;
+  color: #fff;
+  line-height: 24px;
+}
+/* .s4 .new_list { */
+/* position: absolute; title 영역과 겹침 */
+/* left: 0; */
+/* top: 400px; */
+/* } */
+/* .s4 .new_list ul { */
+/* width: 4000px; li 가로로 나열할 때 ul의 가로 길이가 길어야 함 */
+/* } */
+.s4 .new_list {
+  width: 100%;
+  position: absolute;
+  left: 50px;
+  right: 50px;
+  top: 440px;
+}
+.s4 .new_list div div {
+  /* width: 378px; */
+  height: 403px;
+  box-sizing: border-box;
+  position: relative;
+}
+.s4 .new_list div div p {
+  position: absolute;
+  padding: 10px;
+  top: 30px;
+  left: 30px;
+  color: #fff;
+  line-height: 24px;
+  font-weight: bold;
+}
+.s4 .new_list div div a {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  padding-left: 40px;
+  padding-right: 40px;
+  font-size: 20px;
+  font-weight: bold;
+  color: #fff;
+  background-color: #573a2d;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 290px;
+  border: 1px solid#212121;
+  text-align: center;
+}
+.s4 .new_list div div a:hover {
+  color: #151515;
+  background-color: #fff;
+}
+.s4 .new_list div div p:hover {
+  color: #573a2d;
+}
+/* space-roadrip */
+.s5 {
+  position: relative;
+  float: left;
+}
+.s5 .area {
+  /* float: left; */
+  width: 1920px;
+  margin: 0 auto;
+  margin-top: 150px;
+}
+.s5 .content_list ul li {
+  float: left;
+  width: 48%;
+  height: 529px;
+  position: relative;
+}
+.s5 .content_list ul li:first-child {
+  margin-right: 4%;
+}
+.s5 .content_list ul li .content_txt {
+  position: absolute;
+  top: 30px;
+  left: 30px;
+}
+.s5 .content_list ul li h1 {
+  font-size: 50px;
+  color: #fff;
+}
+.s5 .content_list ul li p {
+  font-size: 20px;
+  line-height: 50px;
+  color: #fff;
+  margin-top: 50px;
+}
+.s5 .content_list ul li a {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  padding-left: 40px;
+  padding-right: 40px;
+  font-size: 20px;
+  font-weight: bold;
+  color: #fff;
+  background-color: #573a2d;
+  position: absolute;
+  margin-top: 50px;
+}
+.s5 .content_list ul li a:hover {
+  color: #151515;
+  background-color: #fff;
+}
+/* footer */
+footer {
+  margin-top: 100px;
+  height: 960px;
+  background-color: #573a2d;
+}
+footer .footer_box1 {
+  /*.fooer_box를 .footer_box1로 수정함.*/
+  width: 100%;
+  float: left;
+}
+footer .footer_box2 {
+  /*.fooer_box:last-child를 .footer_box2로 수정함.*/
+  width: 100%; /*추가함*/
+  float: left; /*추가함*/
+  border-top: 1px solid#ddd;
+  border-bottom: 1px solid#ddd;
+  height: 80px;
+}
+footer .footer_box1 .f_menu {
+  width: 100%;
+  margin-top: 30px;
+  float: left;
+  padding: 20px 30px;
+  border-bottom: 1px solid #fff;
+}
+footer .footer_box1 .f_menu > ul > li {
+  margin-right: 30px;
+  float: left;
+}
+footer .footer_box1 .f_menu ul li h1 {
+  font-size: 20px;
+  color: #fff;
+}
+footer .footer_box1 .f_menu ul li ul li a {
+  font-size: 14px;
+  color: #fff;
+}
+footer .footer_box2 .footer_list ul li {
+  margin-top: 10px;
+  float: left;
+}
+footer .footer_box2 .footer_list ul li a {
+  margin-right: 30px;
+  color: #fff;
+}
+footer .footer_box2 .footer_list ul li a span {
+  color: #151515;
+}
+footer .footer_box2 .copy {
+  left: 50%;
+}
+footer .copy .logo {
+  width: 200px;
+  height: 100px;
+}
+footer .copy .logo p {
+  color: #fff;
+  font-size: 14px;
+  line-height: 24px;
+}
